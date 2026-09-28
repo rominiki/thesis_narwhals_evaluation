@@ -1,0 +1,10 @@
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+
+[tool.ruff.lint.per-file-ignores]
+# ray.init() must run before modin imports — E402 is intentional
+"tests/mvag/*.py" = ["E402"]
+"tests/ratio/*.py" = ["E402"]

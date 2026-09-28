@@ -1,0 +1,34 @@
+# Core abstraction layer
+narwhals>=2.18.0
+numpy>=1.26.0
+polars>=1.32.3,<2.0.0
+
+# Approach 1: Narwhals + Snowflake Pandas API (Modin)
+# Use Ray on Linux/Mac, Dask on Windows
+modin>=0.37.0
+
+# Ray backend (Linux/Mac) - comment out on Windows
+# ray>=2.10.0
+
+# Dask backend (Windows alternative) - uncomment on Windows
+dask[complete]>=2024.1.0
+
+# Approach 2: Narwhals + Ibis
+ibis-framework>=12.0.0
+duckdb>=1.0.0
+pyarrow>=17.0.0
+pyarrow-hotfix>=0.7
+
+# Snowflake connectivity (needed for running against Snowflake, not for local tests)
+# Uncomment if you need to test against real Snowflake:
+snowflake-connector-python[secure-local-storage]>=4.0.0
+snowflake-snowpark-python>=1.20.0
+ibis-framework[snowflake]>=12.0.0
+
+# Development tools
+pre-commit>=4.0.0
+ruff>=0.15.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
